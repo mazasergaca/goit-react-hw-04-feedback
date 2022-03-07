@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 215px;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.good {
+  composes: item;
+  background-color: rgb(117, 255, 135);
+}
+
+.neutral {
+  composes: item;
+  background-color: rgb(237, 255, 135);
+}
+
+.bad {
+  composes: item;
+  background-color: rgb(255, 135, 135);
+}
+
+.total {
+  composes: item;
+  background-color: azure;
+}
