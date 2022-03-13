@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Statistics from './Statistics';
-import FeedbackOptions from './FeedbackOptions';
-import Section from './Section';
-import Notification from './Notification';
+import Statistics from '../Statistics';
+import FeedbackOptions from '../FeedbackOptions';
+import Section from '../Section/Section';
+import Notification from '../Notification';
 import s from './Feedback.module.css';
 
 class Feedback extends Component {
