@@ -2,19 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Statistics.module.css';
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+const Statistics = ({ options, total, positivePercentage }) => {
   return (
     <ul className={s.list}>
-      <li className={s.good}>
-        <span>Good:</span> <span>{good}</span>
-      </li>
-      <li className={s.neutral}>
-        <span>Neutral:</span> <span>{neutral}</span>
-      </li>
-      <li className={s.bad}>
-        <span>Bad:</span> <span>{bad}</span>
-      </li>
-      <li className={s.total}>
+      {Object.entries(options).map(([key, value]) => {
+        return (
+          <li className={s[key]} key={key}>
+            <span>
+              {key[0].toUpperCase()}
+              {key.slice(1)}:
+            </span>
+            <span>{value}</span>
+          </li>
+        );
+      })}
+      <li className={s.total} key={total}>
         <span>Total:</span> <span>{total}</span>
       </li>
       <li
@@ -25,6 +27,7 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
             ? s.neutral
             : s.bad
         }
+        key={positivePercentage}
       >
         <span>Positive feedback:</span>
         <span>{positivePercentage}%</span>
@@ -34,9 +37,7 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
 };
 
 Statistics.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
+  options: PropTypes.object.isRequired,
   total: PropTypes.number.isRequired,
   positivePercentage: PropTypes.number.isRequired,
 };
