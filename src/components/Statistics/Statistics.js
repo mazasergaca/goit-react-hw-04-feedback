@@ -8,15 +8,12 @@ const Statistics = ({ options, total, positivePercentage }) => {
       {Object.entries(options).map(([key, value]) => {
         return (
           <li className={s[key]} key={key}>
-            <span>
-              {key[0].toUpperCase()}
-              {key.slice(1)}:
-            </span>
+            <span>{key[0].toUpperCase() + key.slice(1)}:</span>
             <span>{value}</span>
           </li>
         );
       })}
-      <li className={s.total} key={total}>
+      <li className={s.total}>
         <span>Total:</span> <span>{total}</span>
       </li>
       <li
@@ -27,7 +24,6 @@ const Statistics = ({ options, total, positivePercentage }) => {
             ? s.neutral
             : s.bad
         }
-        key={positivePercentage}
       >
         <span>Positive feedback:</span>
         <span>{positivePercentage}%</span>
